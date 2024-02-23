@@ -25,4 +25,4 @@ Este método recibe las dimensiones (ancho, alto y largo) y el peso del paquete 
 0: Palet
 1: Envoltorio de cartón
 2: Caja de madera 
-```
+
