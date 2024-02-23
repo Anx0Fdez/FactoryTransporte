@@ -1,28 +1,35 @@
+# Sistema de Transporte en Java
 
-# Aplicación de Envío de Paquetes en Java
+Este repositorio contiene una aplicación Java diseñada para gestionar el envío de paquetes utilizando diferentes tipos de transporte.
 
-### Esta aplicación permite instanciar dos tipos de transporte: camión y bicicleta.
+## Descripción
 
-## Métodos Comunes
+La aplicación permite calcular el coste de envío y determinar el tipo de embalaje necesario para un paquete, en función del tipo de transporte utilizado. Actualmente, la aplicación soporta el envío por camión y bicicleta.
 
-La aplicación implementa dos métodos comunes para ambos tipos de transporte:
+## Funcionalidades
+
+- Cálculo del coste de envío basado en el código postal de destino.
+- Determinación del tipo de embalaje en función del peso y las dimensiones del paquete.
+
+## Uso
+
+Para utilizar la aplicación, debes instanciar la clase de transporte que deseas utilizar (por ejemplo, Camion o Bicicleta). A continuación, puedes llamar a los métodos costeTotal(int cp) y tipoEmbalaje(float x, float y, float z, float peso) para calcular el coste de envío y determinar el tipo de embalaje, respectivamente.
+
+## Ejemplo
 
 ```java
-costeTotal(Integer cp): Float
+Camion c = new Camion();
+Bicicleta b = new Bicicleta();
+Factory f = new Factory();
+
+int codigoPostal = 12345;
+float costeCamion = c.costeTotal(codigoPostal);
+int embalajeCamion = c.tipoEmbalaje(60.0f, 60.0f, 60.0f, 30.0f);
+float costeBicicleta = b.costeTotal(codigoPostal);
+int embalajeBicicleta = b.tipoEmbalaje(30.0f, 30.0f, 30.0f, 5.0f);
+
+System.out.println("Coste total para envío en camión: $" + costeCamion);
+System.out.println("Tipo de embalaje para envío en camión: " + f.getProducto(embalajeCamion));
+System.out.println("Coste total para envío en bicicleta: $" + costeBicicleta);
+System.out.println("Tipo de embalaje para envío en bicicleta: " + f.getProducto(embalajeBicicleta));
 ```
-
-**Este método recibe el código postal como parámetro y devuelve el costo total para enviar un paquete a ese código postal.**
-
-```java
-tipoEmbalaje(Float x, Float y, Float z, Float peso): Integer
-```
-
-Este método recibe las dimensiones (ancho, alto y largo) y el peso del paquete como parámetros.
-***
-**Devuelve un entero que representa el tipo de embalaje adecuado:**
-
-```
-0: Palet
-1: Envoltorio de cartón
-2: Caja de madera 
-
